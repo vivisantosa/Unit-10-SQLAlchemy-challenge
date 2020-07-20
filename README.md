@@ -22,7 +22,7 @@ As can be seen in the graph below, most of the days in Station are in the comfor
 ## Temperature Analysis I
 Both the graph and the statistical analysis below, it can be seem that Hawaii enjoy moderate temperature all year long, 
 with average temperature difference between June and December only about 4 degrees F.
-<img src="/Graphs/Unit10-4.png" width="720">
+<img src="/Graphs/Table3.png" width="240"><img src="/Graphs/Unit10-4.png" width="720">
 
 However to my surprise, the pvalue of the Ttest result is very low at 4.193529835915755e-187 
 
@@ -31,7 +31,7 @@ This part analysing the temperature of a certain future holiday date, which I pu
 This challenge has 3 parts :
 ### Trip Average Temperature
 Which calculate the average temperature (and the max and min) for the duration of the trip from the lastest year of the data   
-<img src="/Graphs/Table3.png" width="480"> <img src="/Graphs/Unit10-5.png" width="480"> 
+ <img src="/Graphs/Unit10-5.png" width="360"> 
 
 ### Daily Normal Temperature
 Which show the Max, Avg, and Min temperatures for each dates during the duration of the trip from the data 
