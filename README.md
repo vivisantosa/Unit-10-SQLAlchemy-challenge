@@ -1,8 +1,8 @@
 # Unit-10-SQLAlchemy-challenge
-SQL Alchemy Homework - Hawaii Weather!
 !<img src="/Images/Hawaii2020.jpg" width="1080">
 
 ## Climate Analysis and Exploration
+SQL Alchemy Homework - Hawaii Weather!
 ### Precipitation Analysis
 Looking at the table below, we can conclude that Hawaii, is a low precepitation area with only a few high precepitation days. 
 
@@ -21,8 +21,8 @@ As can be seen in the graph below, most of the days in Station are in the comfor
 
 ## Temperature Analysis I
 Both the graph and the statistical analysis below, it can be seem that Hawaii enjoy moderate temperature all year long, 
-with average temperature difference between June and December only about 4 degrees F.
-<img src="/Graphs/Table3.png" width="240"> <img src="/Graphs/Unit10-4.png" width="720">
+with average temperature difference between June and December only about 4 degrees F.<br>
+<img src="/Graphs/Table3.png" width="360"> <img src="/Graphs/Unit10-4.png" width="720">
 
 However to my surprise, when I perform the Ttest, the pvalue of result is very low at 4.193529835915755e-187 
 
