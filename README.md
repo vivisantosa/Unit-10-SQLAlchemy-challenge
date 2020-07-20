@@ -1,5 +1,5 @@
 # Unit-10-SQLAlchemy-challenge
-!<img src="/Images/Hawaii2020.jpg" width="1080">
+<img src="/Images/Hawaii2020.jpg" width="1080">
 
 ## Climate Analysis and Exploration
 SQL Alchemy Homework - Hawaii Weather!
