@@ -30,7 +30,7 @@ This part analysing the temperature of a certain future holiday date, which I pu
 This challenge has 3 parts :
 ### Trip Average Temperature
 Which calculate the average temperature (and the max and min) for the duration of the trip from the lastest year of the data   
- <img src="/Graphs/Unit10-5.png" width="240"> 
+ <img src="/Graphs/Unit10-5.png" width="360"> 
 
 ### Daily Normal Temperature
 Which show the Max, Avg, and Min temperatures for each dates during the duration of the trip from the data.
