@@ -1,7 +1,9 @@
 # Unit-10-SQLAlchemy-challenge
 <img src="/Images/Hawaii2020.jpg" width="1080">
 
-## Climate Analysis and Exploration
+This is a two part challenge, the first one is Climate Analysis and Exploration with SQL Alchemy and Jupyter Notebook and the second one is creating Climate Apps with Flask and SQL Alchemy  
+
+## PART 1 : Climate Analysis and Exploration
 SQL Alchemy Homework - Hawaii Weather!
 ### Precipitation Analysis
 Looking at the table below, we can conclude that Hawaii, is a low precepitation area with only a few high precepitation days. 
@@ -16,9 +18,6 @@ The normal temperature data in USC00519281 are Min Temp = 54.0, Avg Temp = 71.7,
 As can be seen in the graph below, most of the days in Station are in the comfortable weather between 70 - 80 degree F
 <img src="/Graphs/Unit10-2.png" width="720">
 
-## Climate App
-
-
 ## Temperature Analysis I
 Both the graph and the statistical analysis below, it can be seem that Hawaii enjoy moderate temperature all year long, 
 with average temperature difference between June and December only about 4 degrees F.<br>
@@ -31,14 +30,19 @@ This part analysing the temperature of a certain future holiday date, which I pu
 This challenge has 3 parts :
 ### Trip Average Temperature
 Which calculate the average temperature (and the max and min) for the duration of the trip from the lastest year of the data   
- <img src="/Graphs/Unit10-5.png" width="240"> 
+ <img src="/Graphs/Unit10-5.png" width="360"> 
 
 ### Daily Normal Temperature
-Which show the Max, Avg, and Min temperatures for each dates during the duration of the trip from the data 
+Which show the Max, Avg, and Min temperatures for each dates during the duration of the trip from the data.
+Our analaysis shown that the Maximum, Average, and Minimum temperatures for the duration of the trip are 68.0 F, 76.4 F, 81.0 F. 
 <img src="/Graphs/Unit10-6.png" width="720"> 
 
 ### ### Daily Rainfall Average
 Which calculate the rainfall for each weather stations for the duration of the trip using the previous year's matching dates.
-<img src="/Graphs/Table2.png" width="740"> 
+<img src="/Graphs/Table2.png" width="740">
+<img src="/Graphs/barchart.png" width="720">
+
+
+## PART 2 : Climate App
 
 
