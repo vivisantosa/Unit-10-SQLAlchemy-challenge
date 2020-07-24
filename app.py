@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 import datetime as dt
 
+
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -19,19 +20,23 @@ from flask import Flask, jsonify
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///Resources/hawaii.sqlite")
+engine = create_engine("sqlite:///hawaii.sqlite")
+print("The code ran this line")
+print(engine)
 
 # reflect an existing database into a new model
 Base = automap_base()
 # reflect the tables
 Base.prepare(engine, reflect=True)
-
+tables = Base.classes.keys()
+print(tables)
 # Create our session (link) from Python to the DB
 session = Session(engine)
 
 # Save reference to the table
-Measurement = Base.classes.measurement
 Station = Base.classes.station
+Measurement = Base.classes.measurement
+
 
 #################################################
 # Flask Setup
@@ -49,19 +54,19 @@ def welcome():
     return (
         f"Available Routes:<br/>"
         f"- To query precipitation of a certain previous year date, <br/>"
-        f"  /api/v1.0/precipitation"
+        f"  /api/v1.0/precipitation <br/>"
         f"- To list weather stations in Hawaii, <br/>"
-        f"  /api/v1.0/stations"
+        f"  /api/v1.0/stations <br/>"
         f"- To query dates and temperature observations of the most active station for the last year of data, <br/>"
-        f"  /api/v1.0/tobs"
+        f"  /api/v1.0/tobs <br/>"
         f"- To query tmax, tavg, and tmin for all dates from a given start_date (YYYY-MM-DD), <br/>"
-        f"  /api/v1.0/<start>"
+        f"  /api/v1.0/start/<start> <br/>"
         f"- To query tmax, tavg, and tmin for a start_date (YYYY-MM-DD) to end_date (YYYY-MM-DD) range of days, <br/>"
-        f"  /api/v1.0/<start>/<end>"
+        f"  /api/v1.0/range/<start>/<end> <br/>"
     )
 
 #################################################
-# Flask Apps
+# Static Flask Apps
 #################################################
 
 ### Precipitation ###
@@ -69,6 +74,9 @@ def welcome():
 
 @app.route("/api/v1.0/precipitation")
 def precipitation():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+    
     # indentify the date that will give a year of precipitation data
     LastDate = (session.query(func.max(Measurement.date)).first())
     PrevYrDate = dt.datetime.strptime(LastDate[0], '%Y-%m-%d') - dt.timedelta(days=365)
@@ -90,6 +98,7 @@ def precipitation():
 @app.route("/api/v1.0/stations")
 def stations():
     # Query all stations
+    session = Session(engine)
     st_results = session.query(Station.station, Station.name).all()
     session.close()
     # Convert list of tuples into normal list
@@ -103,6 +112,9 @@ def stations():
 
 @app.route("/api/v1.0/tobs")
 def tobs():
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
+
     # indentify the date that will give a year of precipitation data
     LastDate = (session.query(func.max(Measurement.date)).first())
     PrevYrDate = dt.datetime.strptime(LastDate[0], '%Y-%m-%d') - dt.timedelta(days=365)
@@ -117,19 +129,29 @@ def tobs():
 
     return jsonify(tobs_list)
 
+
+#################################################
+# Dynamic Flask Apps
+#################################################
     
 ### START ###
 """Return a list of TMIN, TAVG, and TMAX for all dates greater than and equal to the start date."""
 
-@app.route("/api/v1.0/start")
-def start(start=None):
-    # Get input start data
-    Start_date = "2016-11-11"
+@app.route("/api/v1.0/start/<start>")
+def start(start):
+    # Create our session (link) from Python to the DB
+    session = Session(engine)
     
+    # Get input start data
+    # Start_date = "2016-11-11"
+    # Start_date = input("what is your trip start date (YYYY-MM-DD?")
+
     # Query all passengers
     # Perform a query to retrieve temperature data
+
+
     tobs_ls1 = session.query(Measurement.date, Measurement.tobs).\
-            filter(Measurement.date >= Start_date).all()
+            filter(Measurement.date >= start).all()
     session.close()
 
     # calculate temperature normals (Tmax,Tavg,Tmin)
@@ -138,6 +160,8 @@ def start(start=None):
     Tavg = tobs_df["tobs"].mean()
     Tmax = tobs_df["tobs"].max()
     Tmin = tobs_df["tobs"].min()
+
+    print(Tmin)
 
     return jsonify(Tmax,Tavg,Tmin)
 
