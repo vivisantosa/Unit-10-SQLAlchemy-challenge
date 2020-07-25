@@ -44,5 +44,13 @@ Which calculate the rainfall for each weather stations for the duration of the t
 
 
 ## PART 2 : Climate App
+For this part we created [app.py]() codes for static and dynamic queries
+
+- Landing page
+  <img src="/Images/p1.png" width="400"> 
+- Static queries
+  <img src="/Images/p2.png" width="360"> 
+- Dynamic queries
+  <img src="/Images/p3.png" width="240"> 
 
 
